@@ -1,0 +1,54 @@
+<pre>
+<font color="#5e6d03">#define</font> <font color="#000000">pino_trigger</font> <font color="#000000">8</font>
+<font color="#5e6d03">#define</font> <font color="#000000">pino_echo</font> <font color="#000000">9</font>
+<font color="#5e6d03">#define</font> <font color="#000000">contraste</font> &nbsp;<font color="#000000">6</font>
+
+<font color="#5e6d03">#include</font> <font color="#434f54">&lt;</font><b><font color="#d35400">LiquidCrystal</font></b><font color="#434f54">.</font><font color="#000000">h</font><font color="#434f54">&gt;</font>
+<font color="#434f54">&#47;&#47; inicializa a biblioteca com os números dos pinos de interface</font>
+<font color="#00979c">const</font> <font color="#00979c">int</font> <font color="#000000">rs</font> <font color="#434f54">=</font> <font color="#000000">12</font><font color="#434f54">,</font> <font color="#000000">en</font> <font color="#434f54">=</font> <font color="#000000">11</font><font color="#434f54">,</font> <font color="#000000">d4</font> <font color="#434f54">=</font> <font color="#000000">5</font><font color="#434f54">,</font> <font color="#000000">d5</font> <font color="#434f54">=</font> <font color="#000000">4</font><font color="#434f54">,</font> <font color="#000000">d6</font> <font color="#434f54">=</font> <font color="#000000">3</font><font color="#434f54">,</font> <font color="#000000">d7</font> <font color="#434f54">=</font> <font color="#000000">2</font><font color="#000000">;</font>
+<b><font color="#d35400">LiquidCrystal</font></b> <font color="#000000">lcd</font><font color="#000000">(</font><font color="#000000">rs</font><font color="#434f54">,</font> <font color="#000000">en</font><font color="#434f54">,</font> <font color="#000000">d4</font><font color="#434f54">,</font> <font color="#000000">d5</font><font color="#434f54">,</font> <font color="#000000">d6</font><font color="#434f54">,</font> <font color="#000000">d7</font><font color="#000000">)</font><font color="#000000">;</font>
+
+<font color="#434f54">&#47;&#47;Variaveis</font>
+<font color="#00979c">float</font> <font color="#000000">distancia_CM</font> <font color="#434f54">=</font> <font color="#000000">25.9</font><font color="#000000">;</font>
+<font color="#00979c">float</font> <font color="#000000">tempo</font><font color="#000000">;</font>
+<font color="#00979c">float</font> <font color="#000000">velAr</font><font color="#000000">;</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#434f54">&#47;&#47; Inicializamos a comunicacao com o display lcd</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">begin</font><font color="#000000">(</font><font color="#000000">16</font><font color="#434f54">,</font> <font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font> &nbsp;
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">pino_trigger</font><font color="#434f54">,</font> <font color="#00979c">OUTPUT</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47;PINO DE TRIGGER</font>
+ &nbsp;<font color="#d35400">pinMode</font><font color="#000000">(</font><font color="#000000">pino_echo</font><font color="#434f54">,</font> <font color="#00979c">INPUT</font><font color="#000000">)</font><font color="#000000">;</font> <font color="#434f54">&#47;&#47; SINAL DE ECO</font>
+ &nbsp;<font color="#d35400">analogWrite</font><font color="#000000">(</font><font color="#000000">contraste</font><font color="#434f54">,</font> <font color="#000000">110</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &nbsp;VELOC. DO SOM &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;NO AR &nbsp;&nbsp;&nbsp;&nbsp;&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">2000</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">clear</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">pino_trigger</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">delayMicroseconds</font><font color="#000000">(</font><font color="#000000">2</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">pino_trigger</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">delayMicroseconds</font><font color="#000000">(</font><font color="#000000">10</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#d35400">digitalWrite</font><font color="#000000">(</font><font color="#000000">pino_trigger</font><font color="#434f54">,</font> <font color="#00979c">LOW</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#434f54">&#47;&#47; o tempo sera registrado em microssegundos</font>
+ &nbsp;<font color="#000000">tempo</font> <font color="#434f54">=</font> <font color="#d35400">pulseIn</font><font color="#000000">(</font><font color="#000000">pino_echo</font><font color="#434f54">,</font> <font color="#00979c">HIGH</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">velAr</font> <font color="#434f54">=</font> <font color="#00979c">float</font><font color="#000000">(</font><font color="#000000">(</font><font color="#000000">2</font> <font color="#434f54">*</font> <font color="#000000">distancia_CM</font> <font color="#434f54">*</font> <font color="#000000">10000.0</font><font color="#000000">)</font> <font color="#434f54">&#47;</font> <font color="#000000">tempo</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">clear</font><font color="#000000">(</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">0</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;t = &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">tempo</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;us&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">setCursor</font><font color="#000000">(</font><font color="#000000">0</font><font color="#434f54">,</font> <font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34;v_a = &#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#000000">velAr</font><font color="#434f54">,</font> <font color="#000000">1</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">lcd</font><font color="#434f54">.</font><font color="#d35400">print</font><font color="#000000">(</font><font color="#005c5f">&#34; m&#47;s&#34;</font><font color="#000000">)</font><font color="#000000">;</font>
+
+ &nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">1000</font><font color="#000000">)</font><font color="#000000">;</font>
+<font color="#000000">}</font>
+
+</pre>

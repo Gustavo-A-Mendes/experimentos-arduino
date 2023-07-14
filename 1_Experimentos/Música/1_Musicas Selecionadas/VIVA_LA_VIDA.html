@@ -1,0 +1,55 @@
+<pre>
+<font color="#95a5a6">&#47;* UNIVERSIDADE FEDERAL RURAL DO SEMI-ARIDO</font>
+<font color="#95a5a6"> &nbsp;&nbsp;CENTRO DE CIENCIAS EXATAS E NATURAIS - CCEN</font>
+<font color="#95a5a6"> &nbsp;&nbsp;===== FISICA, MUSICA E ROBÓTICA =====</font>
+<font color="#95a5a6"> &nbsp;&nbsp;Musica: Viva La Vida - Coldplay</font>
+<font color="#95a5a6"> &nbsp;&nbsp;*&#47;</font>
+
+<font color="#00979c">int</font> <font color="#000000">c2</font> <font color="#434f54">=</font> <font color="#000000">65</font><font color="#434f54">,</font> <font color="#000000">d2</font> <font color="#434f54">=</font> <font color="#000000">73</font><font color="#434f54">,</font> <font color="#000000">e2</font> <font color="#434f54">=</font> <font color="#000000">82</font><font color="#434f54">,</font> <font color="#000000">f2</font> <font color="#434f54">=</font> <font color="#000000">87</font><font color="#434f54">,</font> <font color="#000000">g2</font> <font color="#434f54">=</font> <font color="#000000">98</font><font color="#434f54">,</font> <font color="#000000">a2</font> <font color="#434f54">=</font> <font color="#000000">110</font><font color="#434f54">,</font> <font color="#000000">b2</font> <font color="#434f54">=</font> <font color="#000000">123</font><font color="#000000">;</font>
+
+<font color="#434f54">&#47;&#47; COMPASSO: 4&#47;4</font>
+<font color="#00979c">float</font> <font color="#000000">andamento</font> <font color="#434f54">=</font> <font color="#000000">136</font><font color="#000000">;</font>
+<font color="#434f54">&#47;&#47; tempo do compasso(s) = 240 &#47; andamento</font>
+<font color="#00979c">float</font> <font color="#000000">tempo</font> <font color="#434f54">=</font> <font color="#000000">(</font><font color="#000000">240</font> <font color="#434f54">&#47;</font> <font color="#000000">andamento</font><font color="#000000">)</font> <font color="#434f54">*</font> <font color="#000000">1000</font><font color="#000000">;</font>
+
+
+<font color="#434f54">&#47;&#47; notas na melodia:</font>
+<font color="#00979c">int</font> <font color="#000000">melodia</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#000000">{</font>
+ &nbsp;<font color="#000000">d2</font><font color="#434f54">,</font><font color="#000000">d2</font><font color="#434f54">,</font><font color="#000000">d2</font><font color="#434f54">,</font><font color="#000000">d2</font><font color="#434f54">,</font> <font color="#000000">e2</font><font color="#434f54">,</font> <font color="#000000">e2</font><font color="#434f54">,</font><font color="#000000">e2</font><font color="#434f54">,</font><font color="#000000">e2</font><font color="#434f54">,</font><font color="#000000">e2</font><font color="#434f54">,</font>
+ &nbsp;<font color="#000000">a2</font><font color="#434f54">,</font><font color="#000000">a2</font><font color="#434f54">,</font><font color="#000000">a2</font><font color="#434f54">,</font><font color="#000000">a2</font><font color="#434f54">,</font> <font color="#000000">f2</font><font color="#434f54">,</font> <font color="#000000">f2</font><font color="#434f54">,</font><font color="#000000">f2</font><font color="#434f54">,</font><font color="#000000">f2</font><font color="#434f54">,</font><font color="#000000">f2</font><font color="#434f54">,</font>
+ &nbsp;<font color="#000000">d2</font><font color="#434f54">,</font><font color="#000000">d2</font><font color="#434f54">,</font><font color="#000000">d2</font><font color="#434f54">,</font><font color="#000000">d2</font><font color="#434f54">,</font> <font color="#000000">e2</font><font color="#434f54">,</font> <font color="#000000">e2</font><font color="#434f54">,</font><font color="#000000">e2</font><font color="#434f54">,</font><font color="#000000">e2</font><font color="#434f54">,</font><font color="#000000">e2</font><font color="#434f54">,</font>
+ &nbsp;<font color="#000000">a2</font><font color="#434f54">,</font><font color="#000000">a2</font><font color="#434f54">,</font><font color="#000000">a2</font><font color="#434f54">,</font><font color="#000000">a2</font><font color="#434f54">,</font> <font color="#000000">f2</font><font color="#434f54">,</font> <font color="#000000">f2</font><font color="#434f54">,</font><font color="#000000">f2</font><font color="#434f54">,</font><font color="#000000">f2</font><font color="#434f54">,</font><font color="#000000">f2</font>
+<font color="#000000">}</font><font color="#000000">;</font>
+
+<font color="#434f54">&#47;&#47; duracoes das notas: 4 = quarto de tempo, 8 = oitavo de tempo, etc.:</font>
+<font color="#00979c">int</font> <font color="#000000">duracaoNotas</font><font color="#000000">[</font><font color="#000000">]</font> <font color="#434f54">=</font> <font color="#000000">{</font>
+ &nbsp;<font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">8</font><font color="#434f54">,</font> <font color="#000000">4</font><font color="#434f54">,</font> <font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">8</font><font color="#434f54">,</font><font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">4</font><font color="#434f54">,</font>
+ &nbsp;<font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">8</font><font color="#434f54">,</font> <font color="#000000">4</font><font color="#434f54">,</font> <font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">8</font><font color="#434f54">,</font><font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">4</font><font color="#434f54">,</font>
+ &nbsp;<font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">8</font><font color="#434f54">,</font> <font color="#000000">4</font><font color="#434f54">,</font> <font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">8</font><font color="#434f54">,</font><font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">4</font><font color="#434f54">,</font>
+ &nbsp;<font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">8</font><font color="#434f54">,</font> <font color="#000000">4</font><font color="#434f54">,</font> <font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">8</font><font color="#434f54">,</font><font color="#000000">4</font><font color="#434f54">,</font><font color="#000000">4</font>
+<font color="#000000">}</font><font color="#000000">;</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">setup</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#434f54">&#47;&#47; itera as notas das melodias:</font>
+ &nbsp;<font color="#5e6d03">for</font> <font color="#000000">(</font><font color="#00979c">int</font> <font color="#000000">nota</font> <font color="#434f54">=</font> <font color="#000000">0</font><font color="#000000">;</font> <font color="#000000">nota</font> <font color="#434f54">&lt;</font> <font color="#000000">36</font><font color="#000000">;</font> <font color="#000000">nota</font><font color="#434f54">++</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; para calcular a duracao da nota, utilizaremos um segundo</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; dividido pelo tipo da nota.</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; ex. tempo = 1000:</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; quarto de tempo = 1000 &#47; 4, oitavo de tempo = 1000&#47;8, etc.</font>
+ &nbsp;&nbsp;&nbsp;<font color="#00979c">int</font> <font color="#000000">duracaoNota</font> <font color="#434f54">=</font> <font color="#000000">tempo</font> <font color="#434f54">&#47;</font> <font color="#000000">(</font><font color="#000000">duracaoNotas</font><font color="#000000">[</font><font color="#000000">nota</font><font color="#000000">]</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">tone</font><font color="#000000">(</font><font color="#000000">9</font><font color="#434f54">,</font> <font color="#000000">melodia</font><font color="#000000">[</font><font color="#000000">nota</font><font color="#000000">]</font><font color="#434f54">,</font> <font color="#000000">duracaoNota</font> <font color="#434f54">-</font> <font color="#000000">50</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; para distinguir as notas, reduziremos o tempo de nota tocado,</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; porem o tempo até o próxima nota se manterá.</font>
+ &nbsp;&nbsp;&nbsp;<font color="#00979c">int</font> <font color="#000000">pausaEntreNotas</font> <font color="#434f54">=</font> <font color="#000000">duracaoNota</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">delay</font><font color="#000000">(</font><font color="#000000">pausaEntreNotas</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;&nbsp;&nbsp;<font color="#434f54">&#47;&#47; parar a funcao tone:</font>
+ &nbsp;&nbsp;&nbsp;<font color="#d35400">noTone</font><font color="#000000">(</font><font color="#000000">9</font><font color="#000000">)</font><font color="#000000">;</font>
+ &nbsp;<font color="#000000">}</font>
+<font color="#000000">}</font>
+
+<font color="#00979c">void</font> <font color="#5e6d03">loop</font><font color="#000000">(</font><font color="#000000">)</font> <font color="#000000">{</font>
+ &nbsp;<font color="#434f54">&#47;&#47; nao precisa repetir a melodia.</font>
+<font color="#000000">}</font>
+
+</pre>
